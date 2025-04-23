@@ -38,6 +38,15 @@ public class Projectile : MonoBehaviour
         if (collision.gameObject.CompareTag("Character"))
             return;
         
+        // Se colidir com um inimigo, aplica dano
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            var inimigo = collision.gameObject.GetComponent<OIiaMALVADO>();
+            if (inimigo != null)
+            {
+                inimigo.ReceberDano(projectileDamage);
+            }
+        }
         Explode();
     }
 

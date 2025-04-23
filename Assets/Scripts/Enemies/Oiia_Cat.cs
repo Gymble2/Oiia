@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 public class Oiia_Cat : MonoBehaviour
@@ -36,6 +37,24 @@ public class Oiia_Cat : MonoBehaviour
     public int direction { get; private set; } = 1;
     #endregion
 
+    #region Vida
+    [Header("Vida")]
+    [SerializeField] private int vidaMaxima = 5;
+    private int vidaAtual;
+    private Vector3 posicaoInicial;
+
+    [Header("Invencibilidade")]
+    [SerializeField] private float tempoInvencibilidade = 2f;
+    private bool invencivel = false;
+
+    [Header("Knockback")]
+    [SerializeField] private float forcaKnockback = 18f;
+
+    [Header("Piscar Dano")]
+    [SerializeField] private float tempoPiscar = 0.15f;
+    private Coroutine coroutinePiscar;
+    #endregion
+
     #region Unity Methods
 
     
@@ -46,6 +65,8 @@ public class Oiia_Cat : MonoBehaviour
     {
         instance = this;
         InitializeComponents();
+        posicaoInicial = transform.position;
+        vidaAtual = vidaMaxima;
     }
 
     /// <summary>
@@ -109,8 +130,7 @@ public class Oiia_Cat : MonoBehaviour
     {
         if (rigidBody.position.y < -75f)
         {
-            rigidBody.position = Vector2.zero;
-            rigidBody.linearVelocity = Vector2.zero;
+            UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex);
         }
     }
 
@@ -264,6 +284,53 @@ public class Oiia_Cat : MonoBehaviour
     public void TriggerAttackAnimation()
     {
         HandleAttackAnimation();
+    }
+
+    /// <summary>
+    /// Método para receber dano e reiniciar a cena.
+    /// </summary>
+    public void ReceberDano(int dano, Vector3 origemDano)
+    {
+        if (invencivel) return;
+        vidaAtual -= dano;
+        AplicarKnockback(origemDano);
+        if (coroutinePiscar != null)
+            StopCoroutine(coroutinePiscar);
+            coroutinePiscar = StartCoroutine(PiscarVermelho());
+        if (vidaAtual <= 0)
+        {
+            UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex);
+        }
+        else
+        {
+            StartCoroutine(InvencibilidadeCoroutine());
+        }
+    }
+
+    private IEnumerator PiscarVermelho()
+    {
+        Color corOriginal = spriteRenderer.color;
+        spriteRenderer.color = Color.red;
+        yield return new WaitForSeconds(tempoPiscar);
+        spriteRenderer.color = corOriginal;
+        coroutinePiscar = null;
+    }
+
+    private void AplicarKnockback(Vector3 origemDano)
+    {
+        if (rigidBody != null)
+        {
+            float direcao = Mathf.Sign(transform.position.x - origemDano.x);
+            if (direcao == 0) direcao = 1; // Se estiver exatamente alinhado, joga para a direita
+            rigidBody.AddForce(new Vector2(direcao * forcaKnockback, 8f), ForceMode2D.Impulse);
+        }
+    }
+
+    private IEnumerator InvencibilidadeCoroutine()
+    {
+        invencivel = true;
+        yield return new WaitForSeconds(tempoInvencibilidade);
+        invencivel = false;
     }
 
     #endregion
