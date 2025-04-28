@@ -9,6 +9,8 @@ TagManager:
   - Ground
   - Character
   - Dano
+  - Magic_Hands
+  - Enemy
   layers:
   - Default
   - TransparentFX
