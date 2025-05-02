@@ -23,6 +23,10 @@ public class Oiia_Cat : MonoBehaviour
     private Vector2 calculatedPosition;   // Posição base ajustada à base do collider
     private Vector2 colliderSize;         // Tamanho do collider do personagem
     public float jumpForce = 10f;         // Força do pulo
+    public float jumpBufferTime = 0.1f;   // Tempo antes de atingir o chao que o personagem ainda irá pula
+    public float coyoteTime = 0.09f;       // Permite pular mesmo logo após ter saido do chao
+    private float jumpBufferCounter;
+    private float coyoteTimeCounter;
     public float walkSpeed = 7f;          // Velocidade de caminhada
     public float runSpeedModifier = 4f;   // Adicional de velocidade para corrida
     private float slopeCheckDistance = 0.1f; // Distância para checar inclinações
@@ -143,8 +147,28 @@ public class Oiia_Cat : MonoBehaviour
     /// </summary>
     void HandleJumpAnimation()
     {
-        if (IsGroundedComplex() && (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W)))
+
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W)) 
         {
+            jumpBufferCounter = jumpBufferTime; // Inicia o timer do buffer quando PULAR for clicado 
+        }
+        else
+        {
+            jumpBufferCounter -= Time.deltaTime;
+        }
+
+        if (IsGroundedComplex())
+        {
+            coyoteTimeCounter = coyoteTime;
+        }
+        else
+        {
+            coyoteTimeCounter -= Time.deltaTime;
+        }
+
+        if (jumpBufferCounter > 0f && coyoteTimeCounter > 0f)
+        {
+            jumpBufferCounter = 0f;
             Vector2 currentVelocity = rigidBody.linearVelocity;
             currentVelocity.y = jumpForce;
             rigidBody.linearVelocity = currentVelocity;
