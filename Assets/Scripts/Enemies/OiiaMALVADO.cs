@@ -96,7 +96,7 @@ public class OIiaMALVADO : MonoBehaviour
 
         // Só ataca se estiver suficientemente próximo do player (ex: distância menor que 1.2f)
         float distancia = Vector2.Distance(jogador.position, transform.position);
-        Debug.Log(distancia);
+        //Debug.Log(distancia);
         if (podeAtacar && distancia < 1.6f)
             StartCoroutine(RealizarAtaque());
         

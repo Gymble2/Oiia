@@ -65,6 +65,7 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\6000.0.40f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.UIToolkit.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Character\HealthBarUI.cs" />
     <Compile Include="Assets\Scripts\Character\Magic_Hands.cs" />
     <Compile Include="Assets\Scripts\Enemies\Oiia_Cat.cs" />
     <Compile Include="Assets\Scripts\Character\FULLATACK_OIIA.cs" />

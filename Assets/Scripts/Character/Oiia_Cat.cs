@@ -44,7 +44,8 @@ public class Oiia_Cat : MonoBehaviour
     #region Vida
     [Header("Vida")]
     [SerializeField] private int vidaMaxima = 5;
-    private int vidaAtual;
+    [SerializeField] private int vidaAtual;
+    [SerializeField] private HealthBarUI healthBar;
     private Vector3 posicaoInicial;
 
     [Header("Invencibilidade")]
@@ -61,7 +62,16 @@ public class Oiia_Cat : MonoBehaviour
 
     #region Unity Methods
 
-    
+    /// <summary>
+    /// Inicializa os componentes, define a instância singleton e referências essenciais.
+    /// </summary>
+    void Start()
+    {
+        healthBar.SetMaxHealth(vidaMaxima);
+        healthBar.SetHealth(vidaAtual);
+    }
+
+
     /// <summary>
     /// Inicializa os componentes, define a instância singleton e referências essenciais.
     /// </summary>
@@ -96,6 +106,13 @@ public class Oiia_Cat : MonoBehaviour
     #endregion
 
     #region Movement Handlers
+
+    public void SetHealth(int HealthChange) {
+        vidaAtual += HealthChange;
+        vidaAtual = Mathf.Clamp(vidaAtual, 0, vidaMaxima);
+
+        healthBar.SetHealth(vidaAtual);
+    }
 
     /// <summary>
     /// Processa o movimento horizontal do personagem com base na entrada do usuário.
@@ -233,7 +250,7 @@ public class Oiia_Cat : MonoBehaviour
                 direction = -1;
                 animator.SetBool("IsRunning", Input.GetKey(KeyCode.LeftShift));
                 animator.SetFloat("Velocity", rigidBody.linearVelocity.x);
-                Debug.Log("Direção: " + direction);
+                //Debug.Log("Direção: " + direction);
             }
             else if (velocityX > 0.1f)
             {
@@ -241,7 +258,7 @@ public class Oiia_Cat : MonoBehaviour
                 direction = 1;
                 animator.SetBool("IsRunning", Input.GetKey(KeyCode.LeftShift));
                 animator.SetFloat("Velocity", rigidBody.linearVelocity.x);
-                Debug.Log("Direção: " + direction);
+                //Debug.Log("Direção: " + direction);
             }
             else if (velocityX == 0f)
             {
@@ -319,6 +336,7 @@ public class Oiia_Cat : MonoBehaviour
     {
         if (invencivel) return;
         vidaAtual -= dano;
+        healthBar.SetHealth(vidaAtual);
         AplicarKnockback(origemDano);
         if (coroutinePiscar != null)
             StopCoroutine(coroutinePiscar);
