@@ -23,6 +23,10 @@ public class Oiia_Cat : MonoBehaviour
     private Vector2 calculatedPosition;   // Posição base ajustada à base do collider
     private Vector2 colliderSize;         // Tamanho do collider do personagem
     public float jumpForce = 10f;         // Força do pulo
+    public float jumpBufferTime = 0.1f;   // Tempo antes de atingir o chao que o personagem ainda irá pula
+    public float coyoteTime = 0.09f;       // Permite pular mesmo logo após ter saido do chao
+    private float jumpBufferCounter;
+    private float coyoteTimeCounter;
     public float walkSpeed = 7f;          // Velocidade de caminhada
     public float runSpeedModifier = 4f;   // Adicional de velocidade para corrida
     private float slopeCheckDistance = 0.1f; // Distância para checar inclinações
@@ -40,7 +44,8 @@ public class Oiia_Cat : MonoBehaviour
     #region Vida
     [Header("Vida")]
     [SerializeField] private int vidaMaxima = 5;
-    private int vidaAtual;
+    [SerializeField] private int vidaAtual;
+    [SerializeField] private HealthBarUI healthBar;
     private Vector3 posicaoInicial;
 
     [Header("Invencibilidade")]
@@ -57,7 +62,16 @@ public class Oiia_Cat : MonoBehaviour
 
     #region Unity Methods
 
-    
+    /// <summary>
+    /// Inicializa os componentes, define a instância singleton e referências essenciais.
+    /// </summary>
+    void Start()
+    {
+        healthBar.SetMaxHealth(vidaMaxima);
+        healthBar.SetHealth(vidaAtual);
+    }
+
+
     /// <summary>
     /// Inicializa os componentes, define a instância singleton e referências essenciais.
     /// </summary>
@@ -92,6 +106,13 @@ public class Oiia_Cat : MonoBehaviour
     #endregion
 
     #region Movement Handlers
+
+    public void SetHealth(int HealthChange) {
+        vidaAtual += HealthChange;
+        vidaAtual = Mathf.Clamp(vidaAtual, 0, vidaMaxima);
+
+        healthBar.SetHealth(vidaAtual);
+    }
 
     /// <summary>
     /// Processa o movimento horizontal do personagem com base na entrada do usuário.
@@ -143,8 +164,28 @@ public class Oiia_Cat : MonoBehaviour
     /// </summary>
     void HandleJumpAnimation()
     {
-        if (IsGroundedComplex() && (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W)))
+
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W)) 
         {
+            jumpBufferCounter = jumpBufferTime; // Inicia o timer do buffer quando PULAR for clicado 
+        }
+        else
+        {
+            jumpBufferCounter -= Time.deltaTime;
+        }
+
+        if (IsGroundedComplex())
+        {
+            coyoteTimeCounter = coyoteTime;
+        }
+        else
+        {
+            coyoteTimeCounter -= Time.deltaTime;
+        }
+
+        if (jumpBufferCounter > 0f && coyoteTimeCounter > 0f)
+        {
+            jumpBufferCounter = 0f;
             Vector2 currentVelocity = rigidBody.linearVelocity;
             currentVelocity.y = jumpForce;
             rigidBody.linearVelocity = currentVelocity;
@@ -209,7 +250,7 @@ public class Oiia_Cat : MonoBehaviour
                 direction = -1;
                 animator.SetBool("IsRunning", Input.GetKey(KeyCode.LeftShift));
                 animator.SetFloat("Velocity", rigidBody.linearVelocity.x);
-                Debug.Log("Direção: " + direction);
+                //Debug.Log("Direção: " + direction);
             }
             else if (velocityX > 0.1f)
             {
@@ -217,7 +258,7 @@ public class Oiia_Cat : MonoBehaviour
                 direction = 1;
                 animator.SetBool("IsRunning", Input.GetKey(KeyCode.LeftShift));
                 animator.SetFloat("Velocity", rigidBody.linearVelocity.x);
-                Debug.Log("Direção: " + direction);
+                //Debug.Log("Direção: " + direction);
             }
             else if (velocityX == 0f)
             {
@@ -295,6 +336,7 @@ public class Oiia_Cat : MonoBehaviour
     {
         if (invencivel) return;
         vidaAtual -= dano;
+        healthBar.SetHealth(vidaAtual);
         AplicarKnockback(origemDano);
         if (coroutinePiscar != null)
             StopCoroutine(coroutinePiscar);
