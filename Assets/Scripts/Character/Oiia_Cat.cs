@@ -277,7 +277,7 @@ public class Oiia_Cat : MonoBehaviour
     /// </summary>
     void InitializeComponents()
     {
-        gameObject.name = "Bob";
+        gameObject.name = "Kalina";
         playerCollider = GetComponent<BoxCollider2D>();
         rigidBody = GetComponent<Rigidbody2D>();
         colliderSize = playerCollider.size;
@@ -364,6 +364,7 @@ public class Oiia_Cat : MonoBehaviour
     {
         if (rigidBody != null)
         {
+            Debug.Log("Knockback");
             float direcao = Mathf.Sign(transform.position.x - origemDano.x);
             if (direcao == 0) direcao = 1; // Se estiver exatamente alinhado, joga para a direita
             rigidBody.AddForce(new Vector2(direcao * forcaKnockback, 8f), ForceMode2D.Impulse);
