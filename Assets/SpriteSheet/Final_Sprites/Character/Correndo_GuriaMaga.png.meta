@@ -112,10 +112,10 @@ TextureImporter:
       name: Correndo_GuriaMaga_0
       rect:
         serializedVersion: 2
-        x: 7
+        x: 5
         y: 0
         width: 48
-        height: 48
+        height: 44
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -134,10 +134,10 @@ TextureImporter:
       name: Correndo_GuriaMaga_1
       rect:
         serializedVersion: 2
-        x: 55
+        x: 54
         y: 0
         width: 48
-        height: 48
+        height: 44
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -156,10 +156,10 @@ TextureImporter:
       name: Correndo_GuriaMaga_2
       rect:
         serializedVersion: 2
-        x: 103
+        x: 102
         y: 0
-        width: 48
-        height: 48
+        width: 46
+        height: 44
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -178,10 +178,10 @@ TextureImporter:
       name: Correndo_GuriaMaga_3
       rect:
         serializedVersion: 2
-        x: 151
+        x: 148
         y: 0
         width: 48
-        height: 48
+        height: 44
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
