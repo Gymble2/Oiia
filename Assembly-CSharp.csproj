@@ -71,6 +71,7 @@
     <Compile Include="Assets\Scripts\Character\FULLATACK_OIIA.cs" />
     <Compile Include="Assets\Scripts\Character\Projectile.cs" />
     <Compile Include="Assets\Scripts\Enemies\OiiaMALVADO.cs" />
+    <Compile Include="Assets\Scripts\Items\HealthKit.cs" />
     <Compile Include="Assets\Scripts\CameraFollow.cs" />
     <Compile Include="Assets\Scripts\Character\Oiia_Cat.cs" />
   </ItemGroup>
