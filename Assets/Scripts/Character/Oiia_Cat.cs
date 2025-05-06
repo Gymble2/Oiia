@@ -366,7 +366,7 @@ public class Oiia_Cat : MonoBehaviour
         {
             float direcao = Mathf.Sign(transform.position.x - origemDano.x);
             if (direcao == 0) direcao = 1; // Se estiver exatamente alinhado, joga para a direita
-            rigidBody.AddForce(new Vector2(direcao * forcaKnockback, 8f), ForceMode2D.Impulse);
+            rigidBody.AddForce(new Vector2(direcao * forcaKnockback, 4f), ForceMode2D.Impulse);
         }
     }
 
