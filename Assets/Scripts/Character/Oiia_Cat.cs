@@ -107,7 +107,8 @@ public class Oiia_Cat : MonoBehaviour
 
     #region Movement Handlers
 
-    public void SetHealth(int HealthChange) {
+    public void SetHealth(int HealthChange)
+    {
         vidaAtual += HealthChange;
         vidaAtual = Mathf.Clamp(vidaAtual, 0, vidaMaxima);
 
@@ -165,7 +166,7 @@ public class Oiia_Cat : MonoBehaviour
     void HandleJumpAnimation()
     {
 
-        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W)) 
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W))
         {
             jumpBufferCounter = jumpBufferTime; // Inicia o timer do buffer quando PULAR for clicado 
         }
@@ -277,7 +278,7 @@ public class Oiia_Cat : MonoBehaviour
     /// </summary>
     void InitializeComponents()
     {
-        gameObject.name = "Bob";
+        gameObject.name = "Kalina";
         playerCollider = GetComponent<BoxCollider2D>();
         rigidBody = GetComponent<Rigidbody2D>();
         colliderSize = playerCollider.size;
@@ -340,7 +341,7 @@ public class Oiia_Cat : MonoBehaviour
         AplicarKnockback(origemDano);
         if (coroutinePiscar != null)
             StopCoroutine(coroutinePiscar);
-            coroutinePiscar = StartCoroutine(PiscarVermelho());
+        coroutinePiscar = StartCoroutine(PiscarVermelho());
         if (vidaAtual <= 0)
         {
             UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex);
@@ -349,6 +350,27 @@ public class Oiia_Cat : MonoBehaviour
         {
             StartCoroutine(InvencibilidadeCoroutine());
         }
+    }
+
+    // Funcao para setar a vida do player de forma externa e minimamente segura
+    public void setPlayerHealth(int health)
+    {
+        if (health < 0) return;
+
+        vidaAtual += health;
+        vidaAtual = Mathf.Clamp(vidaAtual, 0, vidaMaxima);
+        healthBar.SetHealth(vidaAtual);
+
+    }
+
+    // Funcao para adicionar vida ao player de forma externa e minimamente segura
+    public void addPlayerHealth(int health)
+    {
+        vidaAtual += health;
+        vidaAtual = Mathf.Clamp(vidaAtual, 0, vidaMaxima);
+        healthBar.SetHealth(vidaAtual);
+
+        Debug.Log("Health added. Current health: " + vidaAtual);
     }
 
     private IEnumerator PiscarVermelho()
@@ -364,6 +386,7 @@ public class Oiia_Cat : MonoBehaviour
     {
         if (rigidBody != null)
         {
+            Debug.Log("Knockback");
             float direcao = Mathf.Sign(transform.position.x - origemDano.x);
             if (direcao == 0) direcao = 1; // Se estiver exatamente alinhado, joga para a direita
             rigidBody.AddForce(new Vector2(direcao * forcaKnockback, 4f), ForceMode2D.Impulse);
