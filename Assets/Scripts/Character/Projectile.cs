@@ -33,17 +33,23 @@ public class Projectile : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        // Se colidir com o personagem (assumindo que a tag do personagem seja "Player"), ignora a colisão
         if (collision.gameObject.CompareTag("Character"))
             return;
-        
-        // Se colidir com um inimigo, aplica dano
+
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            var inimigo = collision.gameObject.GetComponent<OIiaMALVADO>();
-            if (inimigo != null)
+            var boss = collision.gameObject.GetComponent<BossScript>();
+            if (boss != null)
             {
-                inimigo.ReceberDano(projectileDamage);
+                boss.ReceberDano(2, (Vector2)transform.position);
+            }
+            else
+            {
+                var inimigo = collision.gameObject.GetComponent<OIiaMALVADO>();
+                if (inimigo != null)
+                {
+                    inimigo.ReceberDano(projectileDamage);
+                }
             }
         }
         Explode();
