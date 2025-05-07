@@ -18,6 +18,8 @@ public class BoxSpawner : MonoBehaviour
 
     void Start()
     {
+        float mult = GameDifficultyManager.instance != null ? GameDifficultyManager.instance.GetMultiplier() : 1f;
+        spawnInterval /= mult; // caixas nascem mais rápido no hard
         timer = spawnInterval;
     }
 

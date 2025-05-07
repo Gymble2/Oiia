@@ -68,6 +68,8 @@
     <Compile Include="Assets\Scripts\Character\HealthBarUI.cs" />
     <Compile Include="Assets\Scripts\Character\Magic_Hands.cs" />
     <Compile Include="Assets\Scripts\Objects_Map\BeginSpawnTrigger.cs" />
+    <Compile Include="Assets\Scripts\Others\MenuDificuldade.cs" />
+    <Compile Include="Assets\Scripts\Others\GameDifficultyManager.cs" />
     <Compile Include="Assets\Scripts\Character\FULLATACK_OIIA.cs" />
     <Compile Include="Assets\Scripts\Character\Projectile.cs" />
     <Compile Include="Assets\Scripts\Enemies\OiiaMALVADO.cs" />

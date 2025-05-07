@@ -46,12 +46,21 @@ public class BossScript : MonoBehaviour
     #region Inicialização
     private void Start()
     {
+        float mult = GameDifficultyManager.instance != null ? GameDifficultyManager.instance.GetMultiplier() : 1f;
+        vidaMaxima = Mathf.RoundToInt(vidaMaxima * mult);
+        vidaAtual = vidaMaxima;
+        velocidadePerseguicao *= mult;
+        dashSpeed *= mult;
+        forcaKnockback *= mult;
+        // Ajuste: Boss só 1.3x maior no hard
+        if (GameDifficultyManager.instance != null && GameDifficultyManager.instance.difficulty == GameDifficulty.Hard)
+            transform.localScale *= 1.3f;
+
         // Inicialização do Boss
         Debug.Log("Boss Initialized");
         animator = GetComponent<Animator>();
         jogador = GameObject.FindGameObjectWithTag("Character").transform;
         animator.SetBool("Patrulha", true);
-        vidaAtual = vidaMaxima;
         rb = GetComponent<Rigidbody2D>();
     }
     #endregion
@@ -59,27 +68,36 @@ public class BossScript : MonoBehaviour
     #region Loop Principal
     private void Update()
     {
+        // Garante que a referência ao personagem está sempre atualizada
+        if (jogador == null)
+        {
+            GameObject found = GameObject.FindGameObjectWithTag("Character");
+            if (found != null)
+                jogador = found.transform;
+        }
+
         if (attackCooldownTimer > 0f)
             attackCooldownTimer -= Time.deltaTime;
 
-        bool playerVisto = PlayerNaFrente();
+        bool playerVisto = false;
+        if (jogador != null)
+            playerVisto = PlayerNaFrente();
+
         if (playerVisto)
         {
             perseguido = true;
+            // Corrigido: só chama dash se não estiver dashing e cooldown acabou
             if (!isDashing && attackCooldownTimer <= 0f)
             {
                 StartCoroutine(DashAttack());
+                attackCooldownTimer = attackCooldown; // Garante cooldown correto
             }
-            // Lógica de perseguição do Boss
-            Debug.Log("Boss is chasing the player!");
             animator.SetBool("Perseguindo", true);
         }
         else
         {
-            // Lógica de patrulha do Boss
             animator.SetBool("Patrulha", true);
         }
-        // Lógica de atualização do Boss
         Debug.Log("Boss Update");
     }
     #endregion
@@ -101,7 +119,6 @@ public class BossScript : MonoBehaviour
             Debug.DrawRay(origem, Vector2.down * groundCheckDistance, Color.red);
             if (chao.collider == null)
             {
-                // Se não houver chão, interrompa o dash
                 rb.linearVelocity = Vector2.zero;
                 break;
             }
@@ -112,7 +129,7 @@ public class BossScript : MonoBehaviour
         rb.linearVelocity = Vector2.zero;
         isDashing = false;
         atacando = false;
-        attackCooldownTimer = attackCooldown;
+        // attackCooldownTimer já é setado no Update
     }
     #endregion
 
