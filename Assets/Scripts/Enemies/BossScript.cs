@@ -34,6 +34,8 @@ public class BossScript : MonoBehaviour
     [SerializeField] private float tempoPiscar = 0.15f;
     [SerializeField] private float forcaKnockback = 7f;
     private Coroutine coroutinePiscar;
+    private bool invulneravel = false;
+    [SerializeField] private float tempoInvulneravel = 2f;
 
     // --- Controle de Estado ---
     [Header("Controle de Estado")]
@@ -148,10 +150,11 @@ public class BossScript : MonoBehaviour
     #endregion
 
     #region Dano e Vida
-    public void ReceberDano(float dano)
+    public void ReceberDano(float dano, Vector2 origemDoDano)
     {
+        if (invulneravel) return;
         vidaAtual -= dano;
-        AplicarKnockback();
+        AplicarKnockback(origemDoDano);
         if (coroutinePiscar != null)
             StopCoroutine(coroutinePiscar);
         coroutinePiscar = StartCoroutine(PiscarVermelho());
@@ -159,6 +162,17 @@ public class BossScript : MonoBehaviour
         {
             Morrer();
         }
+        else
+        {
+            StartCoroutine(InvulnerabilidadeCoroutine());
+        }
+    }
+
+    private IEnumerator InvulnerabilidadeCoroutine()
+    {
+        invulneravel = true;
+        yield return new WaitForSeconds(tempoInvulneravel);
+        invulneravel = false;
     }
 
     private IEnumerator PiscarVermelho()
@@ -169,14 +183,14 @@ public class BossScript : MonoBehaviour
         coroutinePiscar = null;
     }
 
-    private void AplicarKnockback()
+    private void AplicarKnockback(Vector2 origemDano)
     {
         if (rb != null)
         {
-            // Aplica força na direção oposta ao movimento atual (eixo X)
-            float direcao = Mathf.Sign(rb.linearVelocity.x);
-            if (direcao == 0) direcao = -1; // Se parado, joga para a esquerda
-            rb.AddForce(new Vector2(-direcao * forcaKnockback, 3f), ForceMode2D.Impulse);
+            Debug.Log("Knockback");
+            float direcao = Mathf.Sign(transform.position.x - origemDano.x);
+            if (direcao == 0) direcao = 1; // Se estiver exatamente alinhado, joga para a direita
+            rb.AddForce(new Vector2(direcao * forcaKnockback, 4f), ForceMode2D.Impulse);
         }
     }
 

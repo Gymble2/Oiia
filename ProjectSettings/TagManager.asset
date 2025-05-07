@@ -11,6 +11,8 @@ TagManager:
   - Dano
   - Magic_Hands
   - Enemy
+  - Box_Boss
+  - BeginSpawns
   layers:
   - Default
   - TransparentFX
