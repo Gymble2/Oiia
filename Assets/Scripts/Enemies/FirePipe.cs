@@ -12,6 +12,11 @@ public class FirePipe : MonoBehaviour
 
     void Start()
     {
+        float mult = GameDifficultyManager.instance != null ? GameDifficultyManager.instance.GetMultiplier() : 1f;
+        tempoFogoAtivo /= mult; // fogo fica ativo menos tempo se mais difícil
+        tempoFogoDesligado /= mult; // intervalo menor se mais difícil
+        if (mult > 1f && fogoAtivo != null)
+            fogoAtivo.transform.localScale *= mult; // aumenta o tamanho do fogo
         timer = tempoFogoDesligado;
         if (fogoAtivo != null)
             fogoAtivo.SetActive(false);

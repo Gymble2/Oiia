@@ -42,6 +42,13 @@ public class OIiaMALVADO : MonoBehaviour
 
     private void Start()
     {
+        float mult = GameDifficultyManager.instance != null ? GameDifficultyManager.instance.GetMultiplier() : 1f;
+        vidaMaxima = Mathf.RoundToInt(vidaMaxima * mult);
+        vidaAtual = vidaMaxima;
+        velocidadePatrulha *= mult;
+        velocidadePerseguicao *= mult;
+        forcaKnockback *= mult;
+
         animator = GetComponent<Animator>();
         jogador = GameObject.FindGameObjectWithTag("Character").transform;
         animator.SetBool("Patrulha", true);
@@ -49,7 +56,6 @@ public class OIiaMALVADO : MonoBehaviour
         // Garante que o inimigo começa andando e olhando para a esquerda
         direcao = -1;
 
-        vidaAtual = vidaMaxima;
         rb = GetComponent<Rigidbody2D>();
         velocidadeOriginal = velocidadePerseguicao;
     }
