@@ -1,6 +1,9 @@
 using System;
 using System.Collections;
+using System.Numerics;
 using UnityEngine;
+using Vector2 = UnityEngine.Vector2;
+using Vector3 = UnityEngine.Vector3;
 
 public class Oiia_Cat : MonoBehaviour
 {
@@ -25,6 +28,7 @@ public class Oiia_Cat : MonoBehaviour
     public float jumpForce = 10f;         // Força do pulo
     public float jumpBufferTime = 0.1f;   // Tempo antes de atingir o chao que o personagem ainda irá pula
     public float coyoteTime = 0.09f;       // Permite pular mesmo logo após ter saido do chao
+    public float atackBuffTimer = 0.09f;
     private float jumpBufferCounter;
     private float coyoteTimeCounter;
     public float walkSpeed = 7f;          // Velocidade de caminhada
@@ -35,6 +39,7 @@ public class Oiia_Cat : MonoBehaviour
     // Variáveis de ataque
     private bool isAttacking = false;
     [SerializeField] private float attackDuration = 0.5f; // Tempo em que o ataque é mantido
+    // [SerializeField] private float cowndownExtra = 0.f;
     private float attackTimer = 0f;
 
     // Sensor de direção: 1 = direita, -1 = esquerda.
@@ -93,10 +98,9 @@ public class Oiia_Cat : MonoBehaviour
 
         // calculatedPosition = transform.position - new Vector3(0f, colliderSize.y / 2f, 0f);
 
-        if (!isAttacking)
-        {
-            HandleHorizontalMovement();
-        }
+
+        HandleHorizontalMovement();
+
         HandleVerticalMovement();
         HandleJumpAnimation();
         HandleAttackAnimation();
@@ -125,6 +129,7 @@ public class Oiia_Cat : MonoBehaviour
         bool runPressed = Input.GetKey(KeyCode.LeftShift);
 
         float targetVelocityX = 0f;
+        float velocityX = rigidBody.linearVelocity.x;
         if (leftPressed && rightPressed)
         {
             targetVelocityX = 0f;
@@ -132,11 +137,13 @@ public class Oiia_Cat : MonoBehaviour
         }
         else if (leftPressed)
         {
-            targetVelocityX = runPressed ? -(walkSpeed + runSpeedModifier) : -walkSpeed;
+            targetVelocityX = runPressed && !isAttacking ? -(walkSpeed + runSpeedModifier) : -walkSpeed;
+            targetVelocityX = isAttacking && !runPressed ? 0f : targetVelocityX; // Se estiver atacando, não se move
         }
         else if (rightPressed)
         {
-            targetVelocityX = runPressed ? (walkSpeed + runSpeedModifier) : walkSpeed;
+            targetVelocityX = runPressed && !isAttacking ? (walkSpeed + runSpeedModifier) : walkSpeed;
+            targetVelocityX = isAttacking && !runPressed ? 0f : targetVelocityX; 
         }
         else
         {
@@ -211,11 +218,17 @@ public class Oiia_Cat : MonoBehaviour
     /// </summary>
     void HandleAttackAnimation()
     {
-        if (Input.GetMouseButtonDown(0) && !isAttacking && IsGroundedComplex())
+        bool runPressed = Input.GetKey(KeyCode.LeftShift);
+
+        if(Input.GetMouseButtonDown(0) && Input.GetMouseButtonDown(1))
+        {
+            Debug.Log("Nenhum ataque acionado!");
+        }
+        else if(Input.GetMouseButtonDown(0) && !isAttacking && IsGroundedComplex() && attackTimer <= 0f)
         {
             isAttacking = true;
             attackTimer = attackDuration;
-            rigidBody.linearVelocity = Vector2.zero;
+            rigidBody.linearVelocity = runPressed? rigidBody.linearVelocity * 0.5f : Vector2.zero;
             animator.SetBool("Walk_Attack", true);
             Debug.Log("Ataque acionado!");
         }
@@ -223,11 +236,17 @@ public class Oiia_Cat : MonoBehaviour
 
     void HandleChargerAttackAnimation()
     {
-        if (Input.GetMouseButtonDown(1) && !isAttacking && IsGroundedComplex())
+        bool runPressed = Input.GetKey(KeyCode.LeftShift);
+
+        if(Input.GetMouseButtonDown(0) && Input.GetMouseButtonDown(1))
+        {
+            Debug.Log("Nenhum ataque acionado!");
+        }
+        else if (Input.GetMouseButtonDown(1) && !isAttacking && IsGroundedComplex() && attackTimer <= 0f)
         {
             isAttacking = true;
             attackTimer = attackDuration;
-            rigidBody.linearVelocity = Vector2.zero;
+            rigidBody.linearVelocity = runPressed? rigidBody.linearVelocity * 0.5f : Vector2.zero;
             animator.SetBool("Walk_Attack", true);
             Debug.Log("Ataque acionado!");
         }
@@ -236,11 +255,14 @@ public class Oiia_Cat : MonoBehaviour
     /// <summary>
     /// Atualiza as animações de movimento e a direção do sprite.
     /// </summary>
-    // Modifique o método HandleMovementAnimation:
     void HandleMovementAnimation()
     {
         float velocityX = rigidBody.linearVelocity.x;
         animator.SetBool("IsWalking", Mathf.Abs(velocityX) > 0.01f);
+
+        bool runPressed = Input.GetKey(KeyCode.LeftShift);
+        bool isRunning = Mathf.Abs(velocityX) > 0.01f && runPressed;
+        animator.SetBool("IsRunning", isRunning);
 
         if (!isAttacking)
         {
@@ -249,23 +271,18 @@ public class Oiia_Cat : MonoBehaviour
             {
                 spriteRenderer.flipX = true; // Inverte para esquerda
                 direction = -1;
-                animator.SetBool("IsRunning", Input.GetKey(KeyCode.LeftShift));
                 animator.SetFloat("Velocity", rigidBody.linearVelocity.x);
-                //Debug.Log("Direção: " + direction);
             }
             else if (velocityX > 0.1f)
             {
                 spriteRenderer.flipX = false; // Mantém direita
                 direction = 1;
-                animator.SetBool("IsRunning", Input.GetKey(KeyCode.LeftShift));
                 animator.SetFloat("Velocity", rigidBody.linearVelocity.x);
-                //Debug.Log("Direção: " + direction);
             }
             else if (velocityX == 0f)
             {
-                animator.SetBool("IsRunning", false);
+                animator.SetFloat("Velocity", 0f);
             }
-            animator.SetFloat("Velocity", rigidBody.linearVelocity.x);
         }
     }
 
@@ -360,7 +377,6 @@ public class Oiia_Cat : MonoBehaviour
         vidaAtual += health;
         vidaAtual = Mathf.Clamp(vidaAtual, 0, vidaMaxima);
         healthBar.SetHealth(vidaAtual);
-
     }
 
     // Funcao para adicionar vida ao player de forma externa e minimamente segura

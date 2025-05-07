@@ -179,23 +179,23 @@ public class OIiaMALVADO : MonoBehaviour
     }
 
     private void OnCollisionStay2D(Collision2D colisao)
-{
-    if (colisao.gameObject.CompareTag("Character"))
     {
-        var personagem = colisao.gameObject.GetComponent<Oiia_Cat>();
-        if (personagem != null)
+        if (colisao.gameObject.CompareTag("Character"))
         {
-            personagem.ReceberDano(danoAtaque, transform.position);
+            var personagem = colisao.gameObject.GetComponent<Oiia_Cat>();
+            if (personagem != null)
+            {
+                personagem.ReceberDano(danoAtaque, transform.position);
+            }
+        }
+
+        if (atacando && colisao.gameObject.CompareTag("Character"))
+        {
+            // Empurra o jogador
+            Vector2 direcaoEmpurrao = (colisao.transform.position - transform.position).normalized;
+            colisao.gameObject.GetComponent<Rigidbody2D>().AddForce(direcaoEmpurrao * 2, ForceMode2D.Impulse);
         }
     }
-
-    if (atacando && colisao.gameObject.CompareTag("Character"))
-    {
-        // Empurra o jogador
-        Vector2 direcaoEmpurrao = (colisao.transform.position - transform.position).normalized;
-        colisao.gameObject.GetComponent<Rigidbody2D>().AddForce(direcaoEmpurrao * 2, ForceMode2D.Impulse);
-    }
-}
 
     // Método para receber dano
     public void ReceberDano(float dano)

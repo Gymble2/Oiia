@@ -7,6 +7,8 @@ public class Magic_Hands : MonoBehaviour
     [SerializeField] private Transform firePoint; // Ponto de disparo configurado no Inspector
 
     private Vector3 initialFirePointLocalPosition;
+    private float magicCooldown = 0.6f;
+    private float magicTimer = 0f;
 
     private void Start()
     {
@@ -28,6 +30,7 @@ public class Magic_Hands : MonoBehaviour
     private void Update()
     {
         UpdateFirePointPosition();
+        if (magicTimer > 0f) magicTimer -= Time.deltaTime;
         HandleShooting();
     }
 
@@ -46,9 +49,10 @@ public class Magic_Hands : MonoBehaviour
 
     private void HandleShooting()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && magicTimer <= 0f)
         {
             Fire();
+            magicTimer = magicCooldown;
         }
     }
 

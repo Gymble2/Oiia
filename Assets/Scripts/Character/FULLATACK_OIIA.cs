@@ -7,7 +7,8 @@ public class FULLATACK_OIIA : MonoBehaviour
     [SerializeField] private Transform firePoint; // Ponto de disparo configurado no Inspector
 
     private Vector3 initialFirePointLocalPosition;
-
+    private float magicCooldown = 0.6f;
+    private float magicTimer = 0f;
     private void Start()
     {
         // Verifica se Magic_Hands é filho de Oiia_Cat
@@ -28,6 +29,7 @@ public class FULLATACK_OIIA : MonoBehaviour
     private void Update()
     {
         UpdateFirePointPosition();
+        if (magicTimer > 0f) magicTimer -= Time.deltaTime;
         HandleShooting();
     }
 
@@ -45,9 +47,10 @@ public class FULLATACK_OIIA : MonoBehaviour
 
     private void HandleShooting()
     {
-        if (Input.GetMouseButtonDown(1))
+        if (Input.GetMouseButtonDown(1) && magicTimer <= 0f)
         {
             Fire();
+            magicTimer = magicCooldown;
         }
     }
 
