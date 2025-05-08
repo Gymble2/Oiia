@@ -103,10 +103,10 @@ TextureImporter:
       name: HealthKit_0
       rect:
         serializedVersion: 2
-        x: 7
-        y: 7
-        width: 114
-        height: 98
+        x: 0
+        y: 0
+        width: 32
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -121,11 +121,99 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: HealthKit_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 32
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc0eba1518bbcd84b8e10ecea7c9fb5d
+      internalID: -1806723299
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealthKit_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 32
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad549f79c2832104cbc4ef8a99cb8f60
+      internalID: 501492043
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealthKit_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 32
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42360c10507bdc44f9395c9ce6469c31
+      internalID: -458289164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealthKit_4
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 32
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42fe87619b0bd5b43b0b076289849c3c
+      internalID: 1607096298
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 19cdec34c5c56a844b18b92014f0ea5e
     internalID: 0
     vertices: []
     indices: 
@@ -136,6 +224,10 @@ TextureImporter:
       entries: []
     nameFileIdTable:
       HealthKit_0: 3613635533347271568
+      HealthKit_1: -1806723299
+      HealthKit_2: 501492043
+      HealthKit_3: -458289164
+      HealthKit_4: 1607096298
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
