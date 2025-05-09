@@ -75,3 +75,5 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 /Logs
 UserSettings/Layouts/default-6000.dwlt
+UserSettings/Layouts/default-6000.dwlt
+Assembly-CSharp.csproj
