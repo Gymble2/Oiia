@@ -3,7 +3,7 @@ using UnityEngine;
 public class FULLATACK_OIIA : MonoBehaviour
 {
     [SerializeField] private GameObject baseProjectile;
-    [SerializeField] private float projectileSpeed = 10f;
+    [SerializeField] private float projectileSpeed = 8.29f;
     [SerializeField] private Transform firePoint; // Ponto de disparo configurado no Inspector
 
     private Vector3 initialFirePointLocalPosition;
@@ -71,6 +71,7 @@ public class FULLATACK_OIIA : MonoBehaviour
         }
 
         newProjectile.GetComponent<Projectile>().SetDirection(dir);
+        newProjectile.GetComponent<Projectile>().SetProjectileSpeed(projectileSpeed); // Configura a velocidade do projetil
         Oiia_Cat.instance.TriggerAttackAnimation(1);
     }
 }

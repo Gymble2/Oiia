@@ -38,8 +38,8 @@ public class BossScript : MonoBehaviour
     [SerializeField] private float tempoInvulneravel = 2f;
 
     // --- Controle de Estado ---
-    [Header("Controle de Estado")]
-    private bool perseguido = false;
+    //[Header("Controle de Estado")]
+    //private bool perseguido = false;
 
     #endregion
 
@@ -85,7 +85,7 @@ public class BossScript : MonoBehaviour
 
         if (playerVisto)
         {
-            perseguido = true;
+            //perseguido = true;
             // Corrigido: só chama dash se não estiver dashing e cooldown acabou
             if (!isDashing && attackCooldownTimer <= 0f)
             {
