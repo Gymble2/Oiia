@@ -191,7 +191,7 @@ public class OIiaMALVADO : MonoBehaviour
             var personagem = colisao.gameObject.GetComponent<Oiia_Cat>();
             if (personagem != null)
             {
-                personagem.ReceberDano(1, transform.position); // Dano de 1 ao encostar
+                personagem.ReceberDano(danoAtaque, transform.position); // Dano causado ao encostar
             }
         }
 
