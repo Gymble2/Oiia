@@ -3,7 +3,7 @@ using UnityEngine;
 public class Magic_Hands : MonoBehaviour
 {
     [SerializeField] private GameObject baseProjectile;
-    [SerializeField] private float projectileSpeed = 10f;
+    [SerializeField] private float projectileSpeed = 11.08f;
     [SerializeField] private Transform firePoint; // Ponto de disparo configurado no Inspector
 
     private Vector3 initialFirePointLocalPosition;
@@ -66,6 +66,7 @@ public class Magic_Hands : MonoBehaviour
 
         GameObject newProjectile = Instantiate(baseProjectile, spawnPos, Quaternion.identity);
         newProjectile.GetComponent<Projectile>().SetDirection(dir);
+        newProjectile.GetComponent<Projectile>().SetProjectileSpeed(projectileSpeed);
         Oiia_Cat.instance.TriggerAttackAnimation(0);
     }
 }
