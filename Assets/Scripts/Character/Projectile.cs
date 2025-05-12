@@ -66,4 +66,12 @@ public class Projectile : MonoBehaviour
         direction = dir;
         hasDirection = true;
     }
+
+    public void SetProjectileSpeed(float speed)
+    {
+        if(speed > 0)
+        {
+            projectileSpeed = speed;
+        }
+    }
 }

@@ -6,7 +6,7 @@ public class BeginSpawnTrigger : MonoBehaviour
     {
         if (other.CompareTag("Character"))
         {
-            BoxSpawner spawner = FindObjectOfType<BoxSpawner>();
+            BoxSpawner spawner = FindFirstObjectByType<BoxSpawner>();
             if (spawner != null)
             {
                 spawner.EnableSpawning();

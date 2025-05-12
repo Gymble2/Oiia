@@ -34,7 +34,7 @@ public class Oiia_Cat : MonoBehaviour
     private float coyoteTimeCounter;
     public float walkSpeed = 7f;          // Velocidade de caminhada
     public float runSpeedModifier = 4f;   // Adicional de velocidade para corrida
-    private float slopeCheckDistance = 0.1f; // Distância para checar inclinações
+    //private float slopeCheckDistance = 0.1f; // Distância para checar inclinações
     private float slopeAngle;                // Ângulo da inclinação detectada
 
     // Variáveis de ataque
