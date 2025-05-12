@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class BossScript : MonoBehaviour
 {
@@ -106,15 +107,17 @@ public class BossScript : MonoBehaviour
     private IEnumerator DashAttack()
     {
         isDashing = true;
-        animator.SetTrigger("Atacar"); // Use um trigger para animação de ataque/dash
+        animator.SetTrigger("Atacar");
         Vector2 direcaoPlayer = (jogador.position - transform.position).normalized;
         float dashTime = 0f;
+        Collider2D col = GetComponent<Collider2D>();
+        float groundCheckOffset = col != null ? col.bounds.extents.x * Mathf.Sign(direcaoPlayer.x) : 0.7f * Mathf.Sign(direcaoPlayer.x);
+        float groundCheckDistance = 1.5f;
         while (dashTime < dashDuration)
         {
             atacando = true;
-            float groundCheckOffset = 0.7f;
-            float groundCheckDistance = 1.5f;
-            Vector2 origem = (Vector2)transform.position + Vector2.right * direcaoPlayer * groundCheckOffset;
+            // Origem do ground check: base do boss, lateral na direção do dash
+            Vector2 origem = new Vector2(transform.position.x + groundCheckOffset, transform.position.y - (col != null ? col.bounds.extents.y : 0f));
             RaycastHit2D chao = Physics2D.Raycast(origem, Vector2.down, groundCheckDistance, LayerMask.GetMask("ForeGround"));
             Debug.DrawRay(origem, Vector2.down * groundCheckDistance, Color.red);
             if (chao.collider == null)
@@ -129,19 +132,25 @@ public class BossScript : MonoBehaviour
         rb.linearVelocity = Vector2.zero;
         isDashing = false;
         atacando = false;
-        // attackCooldownTimer já é setado no Update
+        Debug.Log("DashAttack terminou. dashTime=" + dashTime + ", dashDuration=" + dashDuration + ", dashSpeed=" + dashSpeed);
     }
     #endregion
 
     #region Detecção
     private bool PlayerNaFrente()
     {
-        Vector2 direcao = (jogador.position - transform.position).normalized;
+        // Origem ajustada para a base do boss
+        Collider2D col = GetComponent<Collider2D>();
+        Vector2 origem = transform.position;
+        if (col != null)
+            origem = new Vector2(transform.position.x, col.bounds.center.y - col.bounds.extents.y);
+        Vector2 direcao = (jogador.position - (Vector3)origem).normalized;
         RaycastHit2D hit = Physics2D.Raycast(
-            transform.position,
+            origem,
             direcao,
             distanciaDetecao,
             layerJogador);
+        Debug.DrawRay(origem, direcao * distanciaDetecao, Color.green);
         return hit.collider != null && hit.collider.CompareTag("Character");
     }
     #endregion
@@ -177,7 +186,7 @@ public class BossScript : MonoBehaviour
         coroutinePiscar = StartCoroutine(PiscarVermelho());
         if (vidaAtual <= 0)
         {
-            Morrer();
+             SceneManager.LoadScene("Scenes/Win");
         }
         else
         {

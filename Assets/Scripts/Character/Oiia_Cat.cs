@@ -160,7 +160,7 @@ public class Oiia_Cat : MonoBehaviour
     {
         if (rigidBody.position.y < -35f)
         {
-            UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex);
+            UnityEngine.SceneManagement.SceneManager.LoadScene("Scenes/Morte");
         }
     }
 
@@ -349,12 +349,11 @@ public class Oiia_Cat : MonoBehaviour
     }
 
     /// <summary>
-    /// Método para receber dano e reiniciar a cena.
+    /// Método para receber dano e carregar a cena 'Morte'.
     /// </summary>
     public void ReceberDano(int dano, Vector3 origemDano)
     {
         if (invencivel) return;
-        
         vidaAtual -= dano;
         healthBar.SetHealth(vidaAtual);
         AplicarKnockback(origemDano);
@@ -364,7 +363,7 @@ public class Oiia_Cat : MonoBehaviour
         coroutinePiscar = StartCoroutine(PiscarVermelho());
         if (vidaAtual <= 0)
         {
-            UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex);
+            UnityEngine.SceneManagement.SceneManager.LoadScene("Morte");
         }
         else
         {

@@ -211,7 +211,7 @@ public class OIiaMALVADO : MonoBehaviour
         if (coroutinePiscar != null)
             StopCoroutine(coroutinePiscar);
         coroutinePiscar = StartCoroutine(PiscarVermelho());
-        if (vidaAtual <= 0)
+        if(vidaAtual <= 0)
         {
             Morrer();
         }
