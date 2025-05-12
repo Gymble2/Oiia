@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      tomando dano 6_0: 98884410868679214
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

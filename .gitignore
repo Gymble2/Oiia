@@ -74,6 +74,7 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 /Logs
-UserSettings/Layouts/default-6000.dwlt
-UserSettings/Layouts/default-6000.dwlt
+
+# Added through git ignore
 Assembly-CSharp.csproj
+/UserSettings/Layouts

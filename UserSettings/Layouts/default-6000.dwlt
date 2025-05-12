@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_PixelRect:
     serializedVersion: 2
-    x: -1024
+    x: -1440
     y: 159
-    width: 1024
-    height: 697
+    width: 1440
+    height: 829
   m_ShowMode: 0
   m_Title: Game
   m_RootView: {fileID: 4}
@@ -65,8 +65,8 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 1024
-    height: 697
+    width: 1440
+    height: 829
   m_MinSize: {x: 200, y: 226}
   m_MaxSize: {x: 4000, y: 4026}
   m_ActualView: {fileID: 18}
@@ -93,8 +93,8 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 1024
-    height: 697
+    width: 1440
+    height: 829
   m_MinSize: {x: 100, y: 50}
   m_MaxSize: {x: 8096, y: 8096}
   vertical: 0
@@ -300,8 +300,8 @@ MonoBehaviour:
     m_TextWithWhitespace: "Animator\u200B"
   m_Pos:
     serializedVersion: 2
-    x: 317
-    y: 79
+    x: 318
+    y: 24
     width: 651
     height: 727
   m_SerializedDataModeController:
@@ -319,8 +319,6 @@ MonoBehaviour:
     m_KeySerializationHelper:
     - {fileID: 1842378825151258884, guid: f09f9aa2cb57eaa4cba8a19be7931c58, type: 2}
     - {fileID: -7047220563865012863, guid: 99bc75cbd7bfcac4ab75b06ec9ca85ea, type: 2}
-    - {fileID: -3659118398918862766, guid: 99bc75cbd7bfcac4ab75b06ec9ca85ea, type: 2}
-    - {fileID: 5572490772149782659, guid: 99bc75cbd7bfcac4ab75b06ec9ca85ea, type: 2}
     m_ValueSerializationHelper:
     - e00: 0.1
       e01: 0
@@ -338,46 +336,14 @@ MonoBehaviour:
       e31: 0
       e32: 0
       e33: 1
-    - e00: 0.25714287
+    - e00: 1
       e01: 0
       e02: 0
-      e03: 308.14285
+      e03: 0
       e10: 0
-      e11: 0.25714287
+      e11: 1
       e12: 0
-      e13: 255.41428
-      e20: 0
-      e21: 0
-      e22: 1
-      e23: 0
-      e30: 0
-      e31: 0
-      e32: 0
-      e33: 1
-    - e00: 0.8333333
-      e01: 0
-      e02: 0
-      e03: -43.333313
-      e10: 0
-      e11: 0.8333333
-      e12: 0
-      e13: 310.66666
-      e20: 0
-      e21: 0
-      e22: 1
-      e23: 0
-      e30: 0
-      e31: 0
-      e32: 0
-      e33: 1
-    - e00: 0.65625
-      e01: 0
-      e02: 0
-      e03: -30.9375
-      e10: 0
-      e11: 0.65625
-      e12: 0
-      e13: 317.75
+      e13: 0
       e20: 0
       e21: 0
       e22: 1
@@ -588,8 +554,8 @@ MonoBehaviour:
     m_TextWithWhitespace: "Animation\u200B"
   m_Pos:
     serializedVersion: 2
-    x: 970
-    y: 79
+    x: 971
+    y: 24
     width: 469
     height: 727
   m_SerializedDataModeController:
@@ -721,21 +687,21 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 60}
     m_SelectedIDs: 04c60000
     m_LastClickedID: 50692
-    m_ExpandedIDs: 0000000004c4000006c4000008c400000ac400000cc400000ec4000010c40000e0c50000e2c500000ac600000cc6000052c60000
+    m_ExpandedIDs: 000000004a78000042c4000044c4000046c4000048c400004ac400004cc400004ec4000050c4000052c4000054c40000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: Items_map
-      m_OriginalName: Items_map
+      m_Name: 
+      m_OriginalName: 
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 50690
+      m_UserData: 0
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 0
+      m_OriginalEventType: 11
       m_IsRenamingFilename: 1
       m_TrimLeadingAndTrailingWhitespace: 0
       m_ClientGUIView: {fileID: 11}
@@ -750,7 +716,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 0000000004c4000006c4000008c400000ac400000cc400000ec4000010c40000
+    m_ExpandedIDs: 000000004a78000042c4000044c4000046c4000048c400004ac400004cc400004ec4000050c4000052c4000054c40000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -782,18 +748,18 @@ MonoBehaviour:
     m_ExpandedInstanceIDs: c623000000c5000094cf000098cf000090fd0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: Tomando Dano
-      m_OriginalName: Tomando Dano
+      m_Name: 
+      m_OriginalName: 
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 50842
+      m_UserData: 0
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 0
+      m_OriginalEventType: 11
       m_IsRenamingFilename: 1
       m_TrimLeadingAndTrailingWhitespace: 0
       m_ClientGUIView: {fileID: 11}
@@ -829,10 +795,10 @@ MonoBehaviour:
     m_TextWithWhitespace: "Scene\u200B"
   m_Pos:
     serializedVersion: 2
-    x: -1024
-    y: 159
-    width: 1024
-    height: 671
+    x: 0
+    y: 26
+    width: 1440
+    height: 803
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -1483,7 +1449,7 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
-    y: 79
+    y: 24
     width: 316
     height: 727
   m_SerializedDataModeController:
@@ -1505,18 +1471,18 @@ MonoBehaviour:
       m_ExpandedIDs: ccd5feff0cfbfffff4fffffff6c00000fac000003ec10000e8c10000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: Magic_Hands
-        m_OriginalName: Magic_Hands
+        m_Name: 
+        m_OriginalName: 
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: 49388
+        m_UserData: 0
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 0
+        m_OriginalEventType: 11
         m_IsRenamingFilename: 0
         m_TrimLeadingAndTrailingWhitespace: 0
         m_ClientGUIView: {fileID: 10}

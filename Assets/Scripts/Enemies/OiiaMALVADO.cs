@@ -6,7 +6,7 @@ public class OIiaMALVADO : MonoBehaviour
 {
     [Header("Configurações de Ataque")]
     [SerializeField] private int danoAtaque = 2;
-    [SerializeField] private float forcaEmpurrao = 5f;
+    [SerializeField] private float forcaEmpurrao = 2f;
     [SerializeField] private float tempoEntreAtaques = 1.2f;
 
     [Header("Detecção")]
@@ -191,7 +191,7 @@ public class OIiaMALVADO : MonoBehaviour
             var personagem = colisao.gameObject.GetComponent<Oiia_Cat>();
             if (personagem != null)
             {
-                personagem.ReceberDano(1, transform.position); // Dano de 1 ao encostar
+                personagem.ReceberDano(danoAtaque, transform.position); // Dano causado ao encostar
             }
         }
 
@@ -199,7 +199,7 @@ public class OIiaMALVADO : MonoBehaviour
         {
             // Empurra o jogador
             Vector2 direcaoEmpurrao = (colisao.transform.position - transform.position).normalized;
-            colisao.gameObject.GetComponent<Rigidbody2D>().AddForce(direcaoEmpurrao * 2, ForceMode2D.Impulse);
+            colisao.gameObject.GetComponent<Rigidbody2D>().AddForce(direcaoEmpurrao * forcaEmpurrao, ForceMode2D.Impulse);
         }
     }
 
