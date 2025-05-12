@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Numerics;
 using UnityEngine;
+using UnityEngine.Analytics;
 using Vector2 = UnityEngine.Vector2;
 using Vector3 = UnityEngine.Vector3;
 
@@ -353,9 +354,11 @@ public class Oiia_Cat : MonoBehaviour
     public void ReceberDano(int dano, Vector3 origemDano)
     {
         if (invencivel) return;
+        
         vidaAtual -= dano;
         healthBar.SetHealth(vidaAtual);
         AplicarKnockback(origemDano);
+
         if (coroutinePiscar != null)
             StopCoroutine(coroutinePiscar);
         coroutinePiscar = StartCoroutine(PiscarVermelho());
