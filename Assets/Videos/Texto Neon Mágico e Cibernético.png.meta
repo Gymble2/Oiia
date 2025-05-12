@@ -1,0 +1,642 @@
+fileFormatVersion: 2
+guid: 8842b6c3ca2d72049aaefb86a67a977e
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -5937021541519515311
+    second: "Texto Neon M\xE1gico e Cibern\xE9tico_0"
+  - first:
+      213: -4497145188823741789
+    second: "Texto Neon M\xE1gico e Cibern\xE9tico_1"
+  - first:
+      213: -7798949351561724183
+    second: "Texto Neon M\xE1gico e Cibern\xE9tico_2"
+  - first:
+      213: 7164741834612643070
+    second: "Texto Neon M\xE1gico e Cibern\xE9tico_3"
+  - first:
+      213: -5972142774387386694
+    second: "Texto Neon M\xE1gico e Cibern\xE9tico_4"
+  - first:
+      213: 2313232817417213341
+    second: "Texto Neon M\xE1gico e Cibern\xE9tico_5"
+  - first:
+      213: 7188289299347922396
+    second: "Texto Neon M\xE1gico e Cibern\xE9tico_6"
+  - first:
+      213: -5772477022775474511
+    second: "Texto Neon M\xE1gico e Cibern\xE9tico_7"
+  - first:
+      213: 8877816116219465793
+    second: "Texto Neon M\xE1gico e Cibern\xE9tico_8"
+  - first:
+      213: 2568915370616082730
+    second: "Texto Neon M\xE1gico e Cibern\xE9tico_9"
+  - first:
+      213: -8823371650576070975
+    second: "Texto Neon M\xE1gico e Cibern\xE9tico_10"
+  - first:
+      213: -178838902522409388
+    second: "Texto Neon M\xE1gico e Cibern\xE9tico_11"
+  - first:
+      213: -7236772379909617754
+    second: "Texto Neon M\xE1gico e Cibern\xE9tico_12"
+  - first:
+      213: 5706365331689085368
+    second: "Texto Neon M\xE1gico e Cibern\xE9tico_13"
+  - first:
+      213: -729427572285431171
+    second: "Texto Neon M\xE1gico e Cibern\xE9tico_14"
+  - first:
+      213: 1555626574560708129
+    second: "Texto Neon M\xE1gico e Cibern\xE9tico_15"
+  - first:
+      213: -8308334688059511176
+    second: "Texto Neon M\xE1gico e Cibern\xE9tico_16"
+  - first:
+      213: 7941262323783373467
+    second: "Texto Neon M\xE1gico e Cibern\xE9tico_17"
+  - first:
+      213: -2054293888046572602
+    second: "Texto Neon M\xE1gico e Cibern\xE9tico_18"
+  - first:
+      213: 4353784876359985893
+    second: "Texto Neon M\xE1gico e Cibern\xE9tico_19"
+  - first:
+      213: 8982976957694771780
+    second: "Texto Neon M\xE1gico e Cibern\xE9tico_20"
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: "Texto Neon M\xE1gico e Cibern\xE9tico_0"
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 1
+        width: 1513
+        height: 1023
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 15123e91d567b9da0800000000000000
+      internalID: -5937021541519515311
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Texto Neon M\xE1gico e Cibern\xE9tico_1"
+      rect:
+        serializedVersion: 2
+        x: 494
+        y: 663
+        width: 120
+        height: 361
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3aacdc4174ee691c0800000000000000
+      internalID: -4497145188823741789
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Texto Neon M\xE1gico e Cibern\xE9tico_2"
+      rect:
+        serializedVersion: 2
+        x: 610
+        y: 655
+        width: 84
+        height: 155
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ee76e6a2e094c390800000000000000
+      internalID: -7798949351561724183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Texto Neon M\xE1gico e Cibern\xE9tico_3"
+      rect:
+        serializedVersion: 2
+        x: 634
+        y: 643
+        width: 223
+        height: 381
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef49777fcb64e6360800000000000000
+      internalID: 7164741834612643070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Texto Neon M\xE1gico e Cibern\xE9tico_4"
+      rect:
+        serializedVersion: 2
+        x: 902
+        y: 683
+        width: 235
+        height: 341
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab659b8d9cfae1da0800000000000000
+      internalID: -5972142774387386694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Texto Neon M\xE1gico e Cibern\xE9tico_5"
+      rect:
+        serializedVersion: 2
+        x: 1005
+        y: 664
+        width: 105
+        height: 137
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d95ddeccdf04a1020800000000000000
+      internalID: 2313232817417213341
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Texto Neon M\xE1gico e Cibern\xE9tico_6"
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 622
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cdddf56580fe1c360800000000000000
+      internalID: 7188289299347922396
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Texto Neon M\xE1gico e Cibern\xE9tico_7"
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 543
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b60d5f4bba04efa0800000000000000
+      internalID: -5772477022775474511
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Texto Neon M\xE1gico e Cibern\xE9tico_8"
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 506
+        width: 7
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 140df7498b6543b70800000000000000
+      internalID: 8877816116219465793
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Texto Neon M\xE1gico e Cibern\xE9tico_9"
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 502
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a21dc9b3bee96a320800000000000000
+      internalID: 2568915370616082730
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Texto Neon M\xE1gico e Cibern\xE9tico_10"
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 487
+        width: 7
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c649266b361d8580800000000000000
+      internalID: -8823371650576070975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Texto Neon M\xE1gico e Cibern\xE9tico_11"
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 470
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 45e812737f2a48df0800000000000000
+      internalID: -178838902522409388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Texto Neon M\xE1gico e Cibern\xE9tico_12"
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 476
+        width: 6
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a7012fccd1d19b90800000000000000
+      internalID: -7236772379909617754
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Texto Neon M\xE1gico e Cibern\xE9tico_13"
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 463
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b99ee91905113f40800000000000000
+      internalID: 5706365331689085368
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Texto Neon M\xE1gico e Cibern\xE9tico_14"
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 455
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d722d88dc7d80e5f0800000000000000
+      internalID: -729427572285431171
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Texto Neon M\xE1gico e Cibern\xE9tico_15"
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 438
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 12649d3a022b69510800000000000000
+      internalID: 1555626574560708129
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Texto Neon M\xE1gico e Cibern\xE9tico_16"
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 430
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 87e2823ee9dd2bc80800000000000000
+      internalID: -8308334688059511176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Texto Neon M\xE1gico e Cibern\xE9tico_17"
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 390
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b921d454208053e60800000000000000
+      internalID: 7941262323783373467
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Texto Neon M\xE1gico e Cibern\xE9tico_18"
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 351
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6cb5abac79ead73e0800000000000000
+      internalID: -2054293888046572602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Texto Neon M\xE1gico e Cibern\xE9tico_19"
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 327
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5eaa7e71740cb6c30800000000000000
+      internalID: 4353784876359985893
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Texto Neon M\xE1gico e Cibern\xE9tico_20"
+      rect:
+        serializedVersion: 2
+        x: 687
+        y: 55
+        width: 157
+        height: 281
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4428aecf2f1f9ac70800000000000000
+      internalID: 8982976957694771780
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable: {}
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
