@@ -419,6 +419,7 @@ GameObject:
   - component: {fileID: 558372348}
   - component: {fileID: 558372347}
   - component: {fileID: 558372346}
+  - component: {fileID: 558372349}
   - component: {fileID: 558372345}
   m_Layer: 5
   m_Name: Button2
@@ -453,7 +454,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 558372343}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d81b9eebccf50af4fac1610df5757688, type: 3}
   m_Name: 
@@ -502,9 +503,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 558372345}
-        m_TargetAssemblyTypeName: ButtonBackMenu, Assembly-CSharp
-        m_MethodName: BackMenu
+      - m_Target: {fileID: 558372349}
+        m_TargetAssemblyTypeName: ButtonRestart, Assembly-CSharp
+        m_MethodName: RestartLevel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -552,6 +553,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 558372343}
   m_CullTransparentMesh: 1
+--- !u!114 &558372349
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 558372343}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 903c57956e190264899c06e67da13a7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  menu: {fileID: 0}
 --- !u!1 &1036686790
 GameObject:
   m_ObjectHideFlags: 0
@@ -700,7 +714,7 @@ VideoPlayer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1073899092}
   m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: 90ece512b51d5994f8f90de38eef816c, type: 3}
+  m_VideoClip: {fileID: 32900000, guid: c6b3642351167b14fbc869d824a972ba, type: 3}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 0}
@@ -817,6 +831,7 @@ GameObject:
   - component: {fileID: 1557309630}
   - component: {fileID: 1557309629}
   - component: {fileID: 1557309628}
+  - component: {fileID: 1557309632}
   - component: {fileID: 1557309631}
   m_Layer: 5
   m_Name: Button
@@ -888,9 +903,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1557309631}
-        m_TargetAssemblyTypeName: ButtonRestart, Assembly-CSharp
-        m_MethodName: RestartLevel
+      - m_Target: {fileID: 1557309632}
+        m_TargetAssemblyTypeName: ButtonBackMenu, Assembly-CSharp
+        m_MethodName: BackMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -945,12 +960,24 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1557309626}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 903c57956e190264899c06e67da13a7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   menu: {fileID: 0}
+--- !u!114 &1557309632
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1557309626}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d81b9eebccf50af4fac1610df5757688, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
