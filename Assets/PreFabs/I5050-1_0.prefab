@@ -173,7 +173,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lifeTime: 0.6
   projectileSpeed: 8.29
-  projectileDamage: 6.96
+  projectileDamage: 8
   animator: {fileID: 4968190401136037100}
 --- !u!50 &3991705386001931849
 Rigidbody2D:

@@ -188,7 +188,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77da09cae600ad94c921f6b872eb009f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifeTime: 0.6
-  projectileSpeed: 11.08
-  projectileDamage: 4.4
+  lifeTime: 1
+  projectileSpeed: 15
+  projectileDamage: 5
   animator: {fileID: 7124827939577937381}

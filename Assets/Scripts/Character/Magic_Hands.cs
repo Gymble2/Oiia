@@ -66,7 +66,7 @@ public class Magic_Hands : MonoBehaviour
 
         GameObject newProjectile = Instantiate(baseProjectile, spawnPos, Quaternion.identity);
         newProjectile.GetComponent<Projectile>().SetDirection(dir);
-        newProjectile.GetComponent<Projectile>().SetProjectileSpeed(projectileSpeed); // Configura a velocidade do projetil
+        //newProjectile.GetComponent<Projectile>().SetProjectileSpeed(projectileSpeed); // Configura a velocidade do projetil
         Oiia_Cat.instance.TriggerAttackAnimation(0);
     }
 }
